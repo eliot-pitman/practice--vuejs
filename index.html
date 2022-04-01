@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <script src="https://unpkg.com/vue@next"></script>
+  <script src="index.js" defer></script>
+</head>
+<body>
+  <style>
+    .disabled {
+      color: rgb(238, 3, 3);
+      transition: color 1s ease
+    }
+    .blackout {
+      background-color: black;
+    }
+  </style>
+  <div id="app"> 
+    <h1>{{ message }}</h1>
+    <h2>{{ name }}</h2>
+    <span v-bind:title="message">
+      Hover your mouse over me for a few seconds
+      to see my dynamically bound title!
+    </span>
+    <br>
+    <button @click="count++">Add 1</button>
+    <p>Count is: {{ count }}</p>
+    <h2>{{ newMessage}}</h2>
+    <!-- add buttons -->
+    <button @click="changeMessage()">say goodbye!</button>
+    <button @click="changeHeader()">change header</button>
+    <!-- add input -->
+    <input type="text" v-model="number1">
+    <input type="text" v-model="number2">
+    <input type="text" v-model="number3">
+    <button @click="computeSum()">Compute Sum</button>
+    <h2>The sum is: {{ sum }}</h2>
+
+    <div>
+      <input type = "checkbox" @click = "showInfo = !showInfo">
+      </input>
+      <p v-bind:class="{ disabled: showInfo }">Extra Information </p>
+    </div>
+    <div>
+      <ol type="I">
+        <li v-for="number in numbers">{{ number }}</li>
+      </ol>
+    </div>
+    <input type="text" v-model="newNumber">
+    <button type="submit" @click="addNumber">add a new number</button>
+
+  </div>
+</body>
+</html>
